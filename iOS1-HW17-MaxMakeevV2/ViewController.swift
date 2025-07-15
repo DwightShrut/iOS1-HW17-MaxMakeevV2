@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    // Mark: - ImageView
+    //MARK: - ImageView
     
     private lazy var imageView: UIImageView = {
         let image = UIImage(named:"background")
@@ -30,6 +30,40 @@ class ViewController: UIViewController {
         loginLabel.translatesAutoresizingMaskIntoConstraints = false
         return loginLabel
     }()
+    
+    //MARK: - Login Stack
+    
+    private lazy var loginStackView: UIStackView = {
+        let loginStackView = UIStackView(arrangedSubviews: [loginTextField, passwordTextField])
+        loginStackView.axis = .vertical
+        loginStackView.distribution = .fillEqually
+        loginStackView.spacing = 11
+        loginStackView.contentMode = .scaleToFill
+        loginStackView.translatesAutoresizingMaskIntoConstraints = false
+        return loginStackView
+    }()
+    
+    private lazy var loginTextField: UITextField = {
+        let loginTextField = UITextField()
+        loginTextField.placeholder = "max@icloud.com"
+        loginTextField.textColor = .black
+        loginTextField.font = .systemFont(ofSize: 14)
+        loginTextField.layer.cornerRadius = 20
+        loginTextField.backgroundColor = .white
+        loginTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        return loginTextField
+    }()
+    
+    private lazy var passwordTextField: UITextField = {
+        let passwordTextField = UITextField()
+        passwordTextField.placeholder = "Password"
+        passwordTextField.textColor = .black
+        passwordTextField.font = .systemFont(ofSize: 14)
+        passwordTextField.layer.cornerRadius = 20
+        passwordTextField.backgroundColor = .white
+        passwordTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        return passwordTextField
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,9 +73,9 @@ class ViewController: UIViewController {
     }
     
     private func setupHierarchy() {
-        
         view.addSubview(imageView)
         view.addSubview(loginLabel)
+        view.addSubview(loginStackView)
     }
     
     private func setupApp() {
@@ -55,6 +89,10 @@ class ViewController: UIViewController {
         loginLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         loginLabel.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 116).isActive = true
         
+        //MARK: - Login StackView constraints
+        loginStackView.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 25).isActive = true
+        loginStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
+        loginStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true
     }
     
     @objc private func buttonPressed() {
