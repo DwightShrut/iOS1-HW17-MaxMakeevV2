@@ -99,6 +99,49 @@ class ViewController: UIViewController {
         return forgotPasswordButton
     }()
     
+    //MARK: - "Connect with" Stack
+    
+    private lazy var connectWithStack: UIStackView = {
+        let connectWithStack = UIStackView(arrangedSubviews: [line1, connectWithnLabel, line2])
+        connectWithStack.axis = .horizontal
+        connectWithStack.alignment = .center
+        connectWithStack.distribution = .fillEqually
+        connectWithStack.spacing = 8
+        connectWithStack.contentMode = .scaleAspectFit
+        connectWithStack.translatesAutoresizingMaskIntoConstraints = false
+        return connectWithStack
+    }()
+    
+    private lazy var line1: UIButton = {
+        let line1 = UIButton(type: .system)
+        line1.layer.cornerRadius = 20
+        line1.backgroundColor = .lightGray
+        line1.configuration?.cornerStyle = .capsule
+        line1.heightAnchor.constraint(equalToConstant: 2).isActive = true
+        return line1
+    }()
+    
+    private lazy var line2: UIButton = {
+        let line2 = UIButton(type: .system)
+        line2.layer.cornerRadius = 20
+        line2.backgroundColor = .lightGray
+        line2.configuration?.cornerStyle = .capsule
+        line2.heightAnchor.constraint(equalToConstant: 2).isActive = true
+        return line2
+    }()
+    
+    private lazy var connectWithnLabel: UILabel = {
+        let connectWithnLabel = UILabel()
+        connectWithnLabel.text = "or connect with"
+        connectWithnLabel.textColor = .lightGray
+        connectWithnLabel.font = .systemFont(ofSize: 16, weight: .regular)
+        connectWithnLabel.textAlignment = .center
+        connectWithnLabel.heightAnchor.constraint(equalToConstant: 16).isActive = true
+        return connectWithnLabel
+    }()
+    
+    
+    
     
 
     override func viewDidLoad() {
@@ -113,6 +156,7 @@ class ViewController: UIViewController {
         view.addSubview(loginLabel)
         view.addSubview(loginStackView)
         view.addSubview(loginButtonStackView)
+        view.addSubview(connectWithStack)
     }
     
     private func setupApp() {
@@ -138,6 +182,11 @@ class ViewController: UIViewController {
         loginButtonStackView.topAnchor.constraint(equalTo: loginStackView.bottomAnchor, constant: 35).isActive = true
         loginButtonStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
         loginButtonStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true
+        
+        //MARK: - "Connect with" Stack constraints
+        connectWithStack.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 25).isActive = true
+        connectWithStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 22).isActive = true
+        connectWithStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -22).isActive = true
     }
 }
 
