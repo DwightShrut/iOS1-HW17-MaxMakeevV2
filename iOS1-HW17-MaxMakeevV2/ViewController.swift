@@ -177,6 +177,36 @@ class ViewController: UIViewController {
         return twitterButton
     }()
     
+    //MARK: - Sign Up Stack
+    
+    private lazy var signUpStack: UIStackView = {
+        let signUpStack = UIStackView(arrangedSubviews: [signUpLabel, signUpButton])
+        signUpStack.axis = .horizontal
+        signUpStack.alignment = .fill
+        signUpStack.distribution = .fill
+        signUpStack.spacing = 0
+        signUpStack.contentMode = .scaleToFill
+        signUpStack.translatesAutoresizingMaskIntoConstraints = false
+        return signUpStack
+    }()
+    
+    private lazy var signUpLabel: UILabel = {
+        let signUpLabel = UILabel()
+        signUpLabel.text = "Don't have account?"
+        signUpLabel.textColor = .lightGray
+        signUpLabel.font = .systemFont(ofSize: 16, weight: .regular)
+        signUpLabel.textAlignment = .center
+        signUpLabel.numberOfLines = 0
+        return signUpLabel
+    }()
+    
+    private lazy var signUpButton: UIButton = {
+        let signUpButton = UIButton(type: .system)
+        signUpButton.setTitle("Sign Up", for: .normal)
+        return signUpButton
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupHierarchy()
@@ -191,6 +221,7 @@ class ViewController: UIViewController {
         view.addSubview(loginButtonStackView)
         view.addSubview(connectWithStack)
         view.addSubview(connectButtonStack)
+        view.addSubview(signUpStack)
     }
     
     private func setupApp() {
@@ -227,6 +258,12 @@ class ViewController: UIViewController {
         connectButtonStack.topAnchor.constraint(equalTo: connectWithStack.bottomAnchor, constant: 20).isActive = true
         connectButtonStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 22).isActive = true
         connectButtonStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -22).isActive = true
+        
+        //MARK: - "Sign UP" Stack constraints
+        
+        signUpStack.topAnchor.constraint(equalTo: connectButtonStack.bottomAnchor, constant: 20).isActive = true
+        signUpStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
+        signUpStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true
     }
 }
 
