@@ -140,10 +140,43 @@ class ViewController: UIViewController {
         return connectWithnLabel
     }()
     
+    //MARK: - Connect Buttons Stack
     
+    private lazy var connectButtonStack: UIStackView = {
+        let connectButtonStack = UIStackView(arrangedSubviews: [facebookButton,twitterButton])
+        connectButtonStack.axis = .horizontal
+        connectButtonStack.alignment = .fill
+        connectButtonStack.distribution = .fillEqually
+        connectButtonStack.spacing = 10
+        connectButtonStack.contentMode = .scaleToFill
+        connectButtonStack.translatesAutoresizingMaskIntoConstraints = false
+        return connectButtonStack
+    }()
     
-    
+    private lazy var facebookButton: UIButton = {
+        let facebookButton = UIButton(type: .system)
+        facebookButton.setTitle("Facebook", for: .normal)
+        facebookButton.setTitleColor(.white, for: .normal)
+        facebookButton.backgroundColor = #colorLiteral(red: 0.2073602676, green: 0.644135654, blue: 0.9379553199, alpha: 1)
+        facebookButton.tintColor = .clear
+        facebookButton.layer.cornerRadius = 20
+        facebookButton.setImage(UIImage(named: "facebook"), for: .normal)
+        facebookButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        return facebookButton
+    }()
 
+    private lazy var twitterButton: UIButton = {
+        let twitterButton = UIButton(type: .system)
+        twitterButton.setTitle("Twitter", for: .normal)
+        twitterButton.setTitleColor(.white, for: .normal)
+        twitterButton.backgroundColor = #colorLiteral(red: 0.3609595895, green: 0.4577199221, blue: 0.7171906829, alpha: 1)
+        twitterButton.tintColor = .white
+        twitterButton.layer.cornerRadius = 20
+        twitterButton.setImage(UIImage(named: "twitter"), for: .normal)
+        twitterButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        return twitterButton
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupHierarchy()
@@ -157,6 +190,7 @@ class ViewController: UIViewController {
         view.addSubview(loginStackView)
         view.addSubview(loginButtonStackView)
         view.addSubview(connectWithStack)
+        view.addSubview(connectButtonStack)
     }
     
     private func setupApp() {
@@ -187,6 +221,12 @@ class ViewController: UIViewController {
         connectWithStack.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 25).isActive = true
         connectWithStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 22).isActive = true
         connectWithStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -22).isActive = true
+        
+        //MARK: - Connect Buttons Stack
+        
+        connectButtonStack.topAnchor.constraint(equalTo: connectWithStack.bottomAnchor, constant: 20).isActive = true
+        connectButtonStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 22).isActive = true
+        connectButtonStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -22).isActive = true
     }
 }
 
