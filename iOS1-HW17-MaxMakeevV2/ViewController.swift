@@ -64,6 +64,38 @@ class ViewController: UIViewController {
         passwordTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
         return passwordTextField
     }()
+    
+    //MARK: LoginButton Stack
+    
+    private lazy var loginButtonStackView: UIStackView = {
+        let loginButtonStackView = UIStackView(arrangedSubviews: [loginButton, forgotPasswordButton])
+        loginButtonStackView.axis = .vertical
+        loginButtonStackView.distribution = .fillProportionally
+        loginButtonStackView.spacing = 10
+        loginButtonStackView.contentMode = .scaleToFill
+        loginButtonStackView.translatesAutoresizingMaskIntoConstraints = false
+        return loginButtonStackView
+    }()
+    
+    private lazy var loginButton: UIButton = {
+        let loginButton = UIButton(type: .system)
+        loginButton.layer.cornerRadius = 20
+        loginButton.setTitle("Login", for: .normal)
+        loginButton.setTitleColor(.white, for: .normal)
+        loginButton.backgroundColor = #colorLiteral(red: 0.4199445248, green: 0.3708131313, blue: 1, alpha: 1)
+        loginButton.configuration?.cornerStyle = .capsule
+        loginButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        return loginButton
+    }()
+    
+    private lazy var forgotPasswordButton: UIButton = {
+        let forgotPasswordButton = UIButton(type: .system)
+        forgotPasswordButton.setTitle("Forgot your password?", for: .normal)
+        forgotPasswordButton.setTitleColor(.white, for: .normal)
+        return forgotPasswordButton
+    }()
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +108,7 @@ class ViewController: UIViewController {
         view.addSubview(imageView)
         view.addSubview(loginLabel)
         view.addSubview(loginStackView)
+        view.addSubview(loginButtonStackView)
     }
     
     private func setupApp() {
@@ -86,13 +119,21 @@ class ViewController: UIViewController {
         imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         
         //MARK: - Login Label contstraints
+        
         loginLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        loginLabel.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 116).isActive = true
+        loginLabel.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 55).isActive = true
         
         //MARK: - Login StackView constraints
+        
         loginStackView.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 25).isActive = true
         loginStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
         loginStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true
+        
+        //MARK: - LoginButton StackView constraints
+            
+        loginButtonStackView.topAnchor.constraint(equalTo: loginStackView.bottomAnchor, constant: 35).isActive = true
+        loginButtonStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
+        loginButtonStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true
     }
     
     @objc private func buttonPressed() {
