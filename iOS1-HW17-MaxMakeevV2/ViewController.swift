@@ -158,9 +158,9 @@ class ViewController: UIViewController {
         facebookButton.setTitle("Facebook", for: .normal)
         facebookButton.setTitleColor(.white, for: .normal)
         facebookButton.backgroundColor = #colorLiteral(red: 0.2073602676, green: 0.644135654, blue: 0.9379553199, alpha: 1)
-        facebookButton.tintColor = .clear
+        let image = UIImage(named: "facebook")?.withRenderingMode(.alwaysOriginal)
         facebookButton.layer.cornerRadius = 20
-        facebookButton.setImage(UIImage(named: "facebook"), for: .normal)
+        facebookButton.setImage(image, for: .normal)
         facebookButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         return facebookButton
     }()
