@@ -234,7 +234,7 @@ class ViewController: UIViewController {
         //MARK: - Login Label contstraints
         
         loginLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        loginLabel.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 55).isActive = true
+        loginLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 35).isActive = true
         
         //MARK: - Login StackView constraints
         
