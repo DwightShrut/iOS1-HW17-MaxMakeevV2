@@ -136,7 +136,8 @@ class ViewController: UIViewController {
         connectWithnLabel.textColor = .lightGray
         connectWithnLabel.font = .systemFont(ofSize: 16, weight: .regular)
         connectWithnLabel.textAlignment = .center
-        connectWithnLabel.heightAnchor.constraint(equalToConstant: 16).isActive = true
+        connectWithnLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        connectWithnLabel.numberOfLines = 0
         return connectWithnLabel
     }()
     
