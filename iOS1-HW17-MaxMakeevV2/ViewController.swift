@@ -9,6 +9,21 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    private func createLabel(
+        text: String,
+        fontSize: CGFloat,
+        color: UIColor,
+        alignment: NSTextAlignment
+    ) -> UILabel {
+        let label = UILabel()
+        label.text = text
+        label.font = .systemFont(ofSize: fontSize, weight: .regular)
+        label.textColor = color
+        label.textAlignment = alignment
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }
     //MARK: - ImageView
     
     private lazy var imageView: UIImageView = {
