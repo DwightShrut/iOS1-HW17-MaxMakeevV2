@@ -41,6 +41,29 @@ class ViewController: UIViewController {
         return button
     }
     
+    private func createTextField(
+        placeholder: String,
+        textColor: UIColor,
+        backgroundColor: UIColor?,
+        fontSize: CGFloat,
+        cornerRadius: CGFloat,
+        leftIcon: UIImage?,
+        rightIcon: UIImage?
+    ) -> UITextField {
+        let textField = UITextField()
+        textField.placeholder = placeholder
+        textField.textColor = textColor
+        textField.backgroundColor = backgroundColor
+        textField.font = .systemFont(ofSize: fontSize, weight: .regular)
+        textField.layer.cornerRadius = cornerRadius
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        guard let leftIcon = leftIcon else { return textField }
+        textField.setLeftIcon(leftIcon)
+        guard let rightIcon = rightIcon else { return textField }
+        textField.setRightIcon(rightIcon)
+        return textField
+    }
+    
     //MARK: - ImageView
     
     private lazy var imageView: UIImageView = {
