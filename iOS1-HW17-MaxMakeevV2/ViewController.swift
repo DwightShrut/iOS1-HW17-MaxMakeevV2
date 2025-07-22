@@ -234,7 +234,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        setupView()
+        addSubviews()
         setupHierarchy()
         setupApp()
         // Do any additional setup after loading the view.
