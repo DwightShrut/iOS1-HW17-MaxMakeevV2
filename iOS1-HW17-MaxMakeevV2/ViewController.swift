@@ -240,6 +240,28 @@ class ViewController: UIViewController {
         setupLayout()
     }
     
+    private func addSubviews() {
+        loginStackView.addArrangedSubview(loginTextField)
+        loginStackView.addArrangedSubview(passwordTextField)
+        
+        loginButtonStackView.addArrangedSubview(loginButton)
+        loginButtonStackView.addArrangedSubview(forgotPasswordButton)
+        
+        connectWithStack.addArrangedSubview(line1)
+        connectWithStack.addArrangedSubview(connectWithnLabel)
+        connectWithStack.addArrangedSubview(line2)
+        
+        connectButtonStack.addArrangedSubview(facebookButton)
+        connectButtonStack.addArrangedSubview(twitterButton)
+        
+        signUpStack.addArrangedSubview(signUpLabel)
+        signUpStack.addArrangedSubview(signUpButton)
+    }
+    
+    private func setupView() {
+        view.backgroundColor = .white
+    }
+    
     private func setupHierarchy() {
         view.addSubview(imageView)
         view.addSubview(loginLabel)
