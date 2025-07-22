@@ -237,8 +237,7 @@ class ViewController: UIViewController {
         setupView()
         addSubviews()
         setupHierarchy()
-        setupApp()
-        // Do any additional setup after loading the view.
+        setupLayout()
     }
     
     private func setupHierarchy() {
@@ -251,7 +250,7 @@ class ViewController: UIViewController {
         view.addSubview(signUpStack)
     }
     
-    private func setupApp() {
+    private func setupLayout() {
         //MARK: Backgroung ImageView constraints
         
         imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
