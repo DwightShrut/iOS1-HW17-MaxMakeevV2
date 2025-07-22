@@ -24,6 +24,23 @@ class ViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }
+    
+    private func createButton(
+        title: String?,
+        textColor: UIColor?,
+        backgroundColor: UIColor?,
+        icon: UIImage?
+    ) -> UIButton {
+        let button = UIButton(type: .system)
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(textColor, for: .normal)
+        button.layer.cornerRadius = 20
+        button.backgroundColor = backgroundColor
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(icon, for: .normal)
+        return button
+    }
+    
     //MARK: - ImageView
     
     private lazy var imageView: UIImageView = {
