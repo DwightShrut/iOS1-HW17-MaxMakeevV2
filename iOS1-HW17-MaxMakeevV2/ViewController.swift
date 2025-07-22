@@ -289,23 +289,30 @@ class ViewController: UIViewController {
         loginStackView.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 25).isActive = true
         loginStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
         loginStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true
+        loginTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         //MARK: - LoginButton StackView constraints
-            
+        
         loginButtonStackView.topAnchor.constraint(equalTo: loginStackView.bottomAnchor, constant: 35).isActive = true
         loginButtonStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
         loginButtonStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true
+        loginButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         //MARK: - "Connect with" Stack constraints
+        
+        connectWithnLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
         connectWithStack.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 25).isActive = true
         connectWithStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 22).isActive = true
         connectWithStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -22).isActive = true
+        line1.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        line2.heightAnchor.constraint(equalToConstant: 1).isActive = true
         
         //MARK: - Connect Buttons Stack
         
         connectButtonStack.topAnchor.constraint(equalTo: connectWithStack.bottomAnchor, constant: 20).isActive = true
         connectButtonStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 22).isActive = true
         connectButtonStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -22).isActive = true
+        facebookButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         //MARK: - "Sign UP" Stack constraints
         
