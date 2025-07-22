@@ -64,6 +64,22 @@ class ViewController: UIViewController {
         return textField
     }
     
+    private func createStackView(
+        axis: NSLayoutConstraint.Axis,
+        distribution: UIStackView.Distribution,
+        spacing: CGFloat,
+        alignment: UIStackView.Alignment?,
+        contentMode: UIView.ContentMode
+    ) -> UIStackView {
+        let stackView = UIStackView()
+        stackView.axis = axis
+        stackView.alignment = alignment ?? .fill
+        stackView.distribution = distribution
+        stackView.spacing = spacing
+        stackView.contentMode = contentMode
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }
     //MARK: - ImageView
     
     private lazy var imageView: UIImageView = {
