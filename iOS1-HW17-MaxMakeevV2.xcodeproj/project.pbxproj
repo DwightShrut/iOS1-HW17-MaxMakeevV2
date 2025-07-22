@@ -14,7 +14,7 @@
 		E9B66F6A2E26809A000E9DD6 /* Exceptions for "iOS1-HW17-MaxMakeevV2" folder in "iOS1-HW17-MaxMakeevV2" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				Resources/Configuration/Info.plist,
 			);
 			target = E9B66F572E268098000E9DD6 /* iOS1-HW17-MaxMakeevV2 */;
 		};
@@ -146,7 +146,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS1-HW17-MaxMakeevV2/Info.plist";
+				INFOPLIST_FILE = "iOS1-HW17-MaxMakeevV2/Resources/Configuration/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -173,7 +173,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS1-HW17-MaxMakeevV2/Info.plist";
+				INFOPLIST_FILE = "iOS1-HW17-MaxMakeevV2/Resources/Configuration/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
