@@ -37,23 +37,14 @@ class ViewController: UIViewController {
         contentMode: .scaleToFill
     )
     
-    
     private lazy var loginTextField = createTextField(
         placeholder: "max@icloud.com",
-        textColor: .black,
-        backgroundColor: .white,
-        fontSize: 14,
-        cornerRadius: 20,
         leftIcon: .init(systemName: "person.circle"),
         rightIcon: .right
     )
     
     private lazy var passwordTextField = createTextField(
         placeholder: "Password",
-        textColor: .black,
-        backgroundColor: .white,
-        fontSize: 14,
-        cornerRadius: 20,
         leftIcon: .init(systemName: "lock"),
         rightIcon: nil
     )
@@ -293,19 +284,15 @@ class ViewController: UIViewController {
     
     private func createTextField(
         placeholder: String,
-        textColor: UIColor,
-        backgroundColor: UIColor?,
-        fontSize: CGFloat,
-        cornerRadius: CGFloat,
         leftIcon: UIImage?,
         rightIcon: UIImage?
     ) -> UITextField {
         let textField = UITextField()
         textField.placeholder = placeholder
-        textField.textColor = textColor
-        textField.backgroundColor = backgroundColor
-        textField.font = .systemFont(ofSize: fontSize, weight: .regular)
-        textField.layer.cornerRadius = cornerRadius
+        textField.textColor = .black
+        textField.backgroundColor = .white
+        textField.font = .systemFont(ofSize: 14, weight: .regular)
+        textField.layer.cornerRadius = 20
         textField.translatesAutoresizingMaskIntoConstraints = false
         guard let leftIcon = leftIcon else { return textField }
         textField.setLeftIcon(leftIcon)
