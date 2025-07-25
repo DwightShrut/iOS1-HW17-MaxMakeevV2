@@ -294,10 +294,15 @@ class ViewController: UIViewController {
         textField.font = .systemFont(ofSize: 14, weight: .regular)
         textField.layer.cornerRadius = 20
         textField.translatesAutoresizingMaskIntoConstraints = false
-        guard let leftIcon = leftIcon else { return textField }
-        textField.setLeftIcon(leftIcon)
-        guard let rightIcon = rightIcon else { return textField }
-        textField.setRightIcon(rightIcon)
+        
+        if let leftIcon = leftIcon {
+            textField.setLeftIcon(leftIcon)
+        }
+
+        if let rightIcon = rightIcon {
+            textField.setRightIcon(rightIcon)
+        }
+        
         return textField
     }
     
