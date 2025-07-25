@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    //MARK: - ImageView
+    // MARK: - ImageView
     
     private lazy var imageView: UIImageView = {
         let image = UIImage(named:"background")
@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         return imageView
     }()
     
-    //MARK: - Login Label
+    // MARK: - Login Label
     private lazy var loginLabel = createLabel(
         text: "Login",
         fontSize: 35,
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         alignment: .center
     )
     
-    //MARK: - Login Stack
+    // MARK: - Login Stack
     
     private lazy var loginStackView = createStackView(
         axis: .vertical,
@@ -58,7 +58,7 @@ class ViewController: UIViewController {
         rightIcon: nil
     )
     
-    //MARK: - LoginButton Stack
+    // MARK: - LoginButton Stack
     
     private lazy var loginButtonStackView = createStackView(
         axis: .vertical,
@@ -82,7 +82,7 @@ class ViewController: UIViewController {
         icon: nil
     )
     
-    //MARK: - "Connect with" Stack
+    // MARK: - "Connect with" Stack
     
     private lazy var connectWithStack = createStackView(
         axis: .horizontal,
@@ -113,7 +113,7 @@ class ViewController: UIViewController {
         alignment: .center
     )
     
-    //MARK: - Connect Buttons Stack
+    // MARK: - Connect Buttons Stack
     
     private lazy var connectButtonStack = createStackView(
         axis: .horizontal,
@@ -137,7 +137,7 @@ class ViewController: UIViewController {
         icon: .twitter.withRenderingMode(.alwaysOriginal)
     )
     
-    //MARK: - Sign Up Stack
+    // MARK: - Sign Up Stack
     
     private lazy var signUpStack = createStackView(
         axis: .horizontal,
@@ -161,6 +161,8 @@ class ViewController: UIViewController {
         icon: nil
     )
     
+    // MARK: - Lifecycle methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -168,6 +170,8 @@ class ViewController: UIViewController {
         setupHierarchy()
         setupLayout()
     }
+    
+    // MARK: View Hierarchy methods
     
     private func addSubviews() {
         loginStackView.addArrangedSubview(loginTextField)
@@ -187,10 +191,6 @@ class ViewController: UIViewController {
         signUpStack.addArrangedSubview(signUpButton)
     }
     
-    private func setupView() {
-        view.backgroundColor = .white
-    }
-    
     private func setupHierarchy() {
         view.addSubview(imageView)
         view.addSubview(loginLabel)
@@ -201,33 +201,40 @@ class ViewController: UIViewController {
         view.addSubview(signUpStack)
     }
     
+    private func setupView() {
+        view.backgroundColor = .white
+    }
+    
+    // MARK: Setup constraints methods
+    
     private func setupLayout() {
-        //MARK: Backgroung ImageView constraints
+        
+        // MARK: Backgroung ImageView constraints
         
         imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
         imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         
-        //MARK: - Login Label contstraints
+        // MARK: - Login Label contstraints
         
         loginLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         loginLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 35).isActive = true
         
-        //MARK: - Login StackView constraints
+        // MARK: - Login StackView constraints
         
         loginStackView.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 25).isActive = true
         loginStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
         loginStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true
         loginTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
-        //MARK: - LoginButton StackView constraints
+        // MARK: - LoginButton StackView constraints
         
         loginButtonStackView.topAnchor.constraint(equalTo: loginStackView.bottomAnchor, constant: 35).isActive = true
         loginButtonStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
         loginButtonStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true
         loginButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
-        //MARK: - "Connect with" Stack constraints
+        // MARK: - "Connect with" Stack constraints
         
         connectWithnLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
         connectWithStack.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 25).isActive = true
@@ -236,19 +243,21 @@ class ViewController: UIViewController {
         line1.heightAnchor.constraint(equalToConstant: 1).isActive = true
         line2.heightAnchor.constraint(equalToConstant: 1).isActive = true
         
-        //MARK: - Connect Buttons Stack
+        // MARK: - Connect Buttons Stack
         
         connectButtonStack.topAnchor.constraint(equalTo: connectWithStack.bottomAnchor, constant: 20).isActive = true
         connectButtonStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 22).isActive = true
         connectButtonStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -22).isActive = true
         facebookButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
-        //MARK: - "Sign UP" Stack constraints
+        // MARK: - "Sign UP" Stack constraints
         
         signUpStack.topAnchor.constraint(equalTo: connectButtonStack.bottomAnchor, constant: 20).isActive = true
         signUpStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
         signUpStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true
     }
+    
+    // MARK: - Create views methods
     
     private func createLabel(
         text: String,
