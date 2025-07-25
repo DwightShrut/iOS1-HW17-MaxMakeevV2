@@ -9,77 +9,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    private func createLabel(
-        text: String,
-        fontSize: CGFloat,
-        color: UIColor,
-        alignment: NSTextAlignment
-    ) -> UILabel {
-        let label = UILabel()
-        label.text = text
-        label.font = .systemFont(ofSize: fontSize, weight: .regular)
-        label.textColor = color
-        label.textAlignment = alignment
-        label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }
-    
-    private func createButton(
-        title: String?,
-        textColor: UIColor?,
-        backgroundColor: UIColor?,
-        icon: UIImage?
-    ) -> UIButton {
-        let button = UIButton(type: .system)
-        button.setTitle(title, for: .normal)
-        button.setTitleColor(textColor, for: .normal)
-        button.layer.cornerRadius = 20
-        button.backgroundColor = backgroundColor
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(icon, for: .normal)
-        return button
-    }
-    
-    private func createTextField(
-        placeholder: String,
-        textColor: UIColor,
-        backgroundColor: UIColor?,
-        fontSize: CGFloat,
-        cornerRadius: CGFloat,
-        leftIcon: UIImage?,
-        rightIcon: UIImage?
-    ) -> UITextField {
-        let textField = UITextField()
-        textField.placeholder = placeholder
-        textField.textColor = textColor
-        textField.backgroundColor = backgroundColor
-        textField.font = .systemFont(ofSize: fontSize, weight: .regular)
-        textField.layer.cornerRadius = cornerRadius
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        guard let leftIcon = leftIcon else { return textField }
-        textField.setLeftIcon(leftIcon)
-        guard let rightIcon = rightIcon else { return textField }
-        textField.setRightIcon(rightIcon)
-        return textField
-    }
-    
-    private func createStackView(
-        axis: NSLayoutConstraint.Axis,
-        distribution: UIStackView.Distribution,
-        spacing: CGFloat,
-        alignment: UIStackView.Alignment?,
-        contentMode: UIView.ContentMode
-    ) -> UIStackView {
-        let stackView = UIStackView()
-        stackView.axis = axis
-        stackView.alignment = alignment ?? .fill
-        stackView.distribution = distribution
-        stackView.spacing = spacing
-        stackView.contentMode = contentMode
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }
     //MARK: - ImageView
     
     private lazy var imageView: UIImageView = {
@@ -319,6 +248,78 @@ class ViewController: UIViewController {
         signUpStack.topAnchor.constraint(equalTo: connectButtonStack.bottomAnchor, constant: 20).isActive = true
         signUpStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
         signUpStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true
+    }
+    
+    private func createLabel(
+        text: String,
+        fontSize: CGFloat,
+        color: UIColor,
+        alignment: NSTextAlignment
+    ) -> UILabel {
+        let label = UILabel()
+        label.text = text
+        label.font = .systemFont(ofSize: fontSize, weight: .regular)
+        label.textColor = color
+        label.textAlignment = alignment
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }
+    
+    private func createButton(
+        title: String?,
+        textColor: UIColor?,
+        backgroundColor: UIColor?,
+        icon: UIImage?
+    ) -> UIButton {
+        let button = UIButton(type: .system)
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(textColor, for: .normal)
+        button.layer.cornerRadius = 20
+        button.backgroundColor = backgroundColor
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(icon, for: .normal)
+        return button
+    }
+    
+    private func createTextField(
+        placeholder: String,
+        textColor: UIColor,
+        backgroundColor: UIColor?,
+        fontSize: CGFloat,
+        cornerRadius: CGFloat,
+        leftIcon: UIImage?,
+        rightIcon: UIImage?
+    ) -> UITextField {
+        let textField = UITextField()
+        textField.placeholder = placeholder
+        textField.textColor = textColor
+        textField.backgroundColor = backgroundColor
+        textField.font = .systemFont(ofSize: fontSize, weight: .regular)
+        textField.layer.cornerRadius = cornerRadius
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        guard let leftIcon = leftIcon else { return textField }
+        textField.setLeftIcon(leftIcon)
+        guard let rightIcon = rightIcon else { return textField }
+        textField.setRightIcon(rightIcon)
+        return textField
+    }
+    
+    private func createStackView(
+        axis: NSLayoutConstraint.Axis,
+        distribution: UIStackView.Distribution,
+        spacing: CGFloat,
+        alignment: UIStackView.Alignment?,
+        contentMode: UIView.ContentMode
+    ) -> UIStackView {
+        let stackView = UIStackView()
+        stackView.axis = axis
+        stackView.alignment = alignment ?? .fill
+        stackView.distribution = distribution
+        stackView.spacing = spacing
+        stackView.contentMode = contentMode
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
     }
 }
 
