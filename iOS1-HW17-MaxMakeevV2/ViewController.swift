@@ -191,7 +191,7 @@ class ViewController: UIViewController {
         view.addSubview(connectButtonStack)
         view.addSubview(signUpStack)
     }
-    
+
     private func setupView() {
         view.backgroundColor = .white
     }
