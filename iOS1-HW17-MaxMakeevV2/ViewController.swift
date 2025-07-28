@@ -15,7 +15,6 @@ class ViewController: UIViewController {
         let image = UIImage(named:"background")
         let imageView = UIImageView(image:image)
         imageView.contentMode = .scaleToFill
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
@@ -191,7 +190,7 @@ class ViewController: UIViewController {
         view.addSubview(connectButtonStack)
         view.addSubview(signUpStack)
     }
-    
+
     private func setupView() {
         view.backgroundColor = .white
     }
@@ -200,54 +199,85 @@ class ViewController: UIViewController {
     
     private func setupLayout() {
         
-        // MARK: Backgroung ImageView constraints
+        // MARK: -Backgroung ImageView constraints
         
-        imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-        imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        imageView.addConstraints(
+            top: view.topAnchor,
+            topPadding: 0,
+            left: view.leadingAnchor,
+            leftPadding: 0,
+            right: view.trailingAnchor,
+            rightPadding: 0
+        )
         
         // MARK: - Login Label contstraints
         
-        loginLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        loginLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 35).isActive = true
+        loginLabel.addConstraints(
+            centerX: view.centerXAnchor,
+            top: view.safeAreaLayoutGuide.topAnchor,
+            topPadding: 35
+        )
         
         // MARK: - Login StackView constraints
         
-        loginStackView.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 25).isActive = true
-        loginStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
-        loginStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true
-        loginTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        loginStackView.addConstraints(
+            top: loginLabel.bottomAnchor,
+            topPadding: 25,
+            left: view.leadingAnchor,
+            leftPadding: 50,
+            right: view.trailingAnchor,
+            rightPadding: -50,
+        )
+        
+        loginTextField.addConstraints(height: 40)
+        passwordTextField.addConstraints(height: 40)
         
         // MARK: - LoginButton StackView constraints
         
-        loginButtonStackView.topAnchor.constraint(equalTo: loginStackView.bottomAnchor, constant: 35).isActive = true
-        loginButtonStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
-        loginButtonStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true
-        loginButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        loginButtonStackView.addConstraints(
+            top: loginStackView.bottomAnchor,
+            topPadding: 35,
+            left: view.leadingAnchor,
+            leftPadding: 50,
+            right: view.trailingAnchor,
+            rightPadding: -50
+        )
+        
+        loginButton.addConstraints(height: 40)
         
         // MARK: - "Connect with" Stack constraints
         
-        connectWithnLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        connectWithStack.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 25).isActive = true
-        connectWithStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 22).isActive = true
-        connectWithStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -22).isActive = true
-        line1.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        line2.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        connectWithStack.addConstraints(
+            top: imageView.bottomAnchor,
+            topPadding: 25,
+            left: view.leadingAnchor,
+            leftPadding: 22,
+            right: view.trailingAnchor,
+            rightPadding: -22
+        )
+        
+        connectWithnLabel.addConstraints(height: 40)
+        line1.addConstraints(height: 1)
+        line2.addConstraints(height: 1)
         
         // MARK: - Connect Buttons Stack
         
-        connectButtonStack.topAnchor.constraint(equalTo: connectWithStack.bottomAnchor, constant: 20).isActive = true
-        connectButtonStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 22).isActive = true
-        connectButtonStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -22).isActive = true
-        facebookButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        connectButtonStack.addConstraints(
+            top: connectWithStack.bottomAnchor,
+            topPadding: 20,
+            left: view.leadingAnchor,
+            leftPadding: 22,
+            right: view.trailingAnchor,
+            rightPadding: -22
+        )
+        
+        facebookButton.addConstraints(height: 40)
         
         // MARK: - "Sign UP" Stack constraints
         
-        signUpStack.topAnchor.constraint(equalTo: connectButtonStack.bottomAnchor, constant: 20).isActive = true
-        signUpStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
-        signUpStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true
+        signUpStack.addConstraints(top: connectButtonStack.bottomAnchor, topPadding: 20, left: view.leadingAnchor, leftPadding: 50, right: view.trailingAnchor, rightPadding: -50)
     }
-    
+        
     // MARK: - Create views methods
     
     private func createLabel(
@@ -262,7 +292,6 @@ class ViewController: UIViewController {
         label.textColor = color
         label.textAlignment = alignment
         label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }
     
@@ -277,7 +306,6 @@ class ViewController: UIViewController {
         button.setTitleColor(textColor, for: .normal)
         button.layer.cornerRadius = 20
         button.backgroundColor = backgroundColor
-        button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(icon, for: .normal)
         return button
     }
@@ -293,7 +321,6 @@ class ViewController: UIViewController {
         textField.backgroundColor = .white
         textField.font = .systemFont(ofSize: 14, weight: .regular)
         textField.layer.cornerRadius = 20
-        textField.translatesAutoresizingMaskIntoConstraints = false
         
         if let leftIcon = leftIcon {
             textField.setLeftIcon(leftIcon)
@@ -302,7 +329,6 @@ class ViewController: UIViewController {
         if let rightIcon = rightIcon {
             textField.setRightIcon(rightIcon)
         }
-        
         return textField
     }
     
@@ -319,7 +345,6 @@ class ViewController: UIViewController {
         stackView.distribution = distribution
         stackView.spacing = spacing
         stackView.contentMode = contentMode
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }
-}
+} 
